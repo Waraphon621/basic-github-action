@@ -33,4 +33,4 @@ jobs:
       - name: Push Docker image to Docker Hub
         env:
           IMAGE_TAG: dev-${{ github.run_number }}
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/testapi:latest
+        run: docker push https://api.render.com/deploy/DEPLOY_KEY
