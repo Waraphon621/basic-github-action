@@ -33,4 +33,4 @@ jobs:
       - name: Push Docker image to Docker Hub
         env:
           IMAGE_TAG: dev-${{ github.run_number }}
-        run: curl https://api.render.com/deploy/ ${{ secrets.DEPLOY_KEY }}
+        run: curl https://api.render.com/deploy/${{ secrets.DEPLOY_KEY }}
