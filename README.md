@@ -70,8 +70,35 @@ act push -W .github/workflows/04-build-test-push.yaml \
 
 ```bash
 docker build -t testapi .
-docker run --rm -p 8000:8000 testapi
-# open http://localhost:8000/
+docker run --rm -p 10000:10000 testapi
+# open http://localhost:10000/
+```
+
+## Simple Todo demo
+
+The app now serves a small Todo UI at `/`.
+
+API routes:
+
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/api/health` | Health check |
+| `GET` | `/api/tasks` | List all tasks |
+| `POST` | `/api/tasks` | Create a task with title, detail, due date, and checklist |
+| `PATCH` | `/api/tasks/{task_id}/end` | Mark a task as done |
+
+Example create request:
+
+```json
+{
+  "title": "Prepare demo",
+  "detail": "Create a simple Todo example",
+  "due_at": "2026-05-22T10:00:00",
+  "checklist": [
+    { "text": "Create API" },
+    { "text": "Add UI" }
+  ]
+}
 ```
 
 ## Lab tasks (from `resource/github-action-lab-guide.pdf`)
